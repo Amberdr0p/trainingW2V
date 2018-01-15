@@ -113,8 +113,8 @@ public class ProcessingFile {
   private static void writeFileLarge(int count)
       throws UnsupportedEncodingException, FileNotFoundException, IOException {
     try (Writer writer = new BufferedWriter(
-        new OutputStreamWriter(new FileOutputStream("vectors.model1.txt", true), "utf-8"))) {
-      BufferedReader br = getBr("model123.txt", 0);
+        new OutputStreamWriter(new FileOutputStream("trainfile400.txt", true), "utf-8"))) {
+      BufferedReader br = getBr("C://Users//Ivan//workspace//search-phrases//ALL.txt", 0);
 
       // br.readLine();
       int i=0;
@@ -141,8 +141,19 @@ public class ProcessingFile {
 
   public static void main(String[] args)
       throws UnsupportedEncodingException, FileNotFoundException, IOException {
-    if(args.length == 1) {
+     /* if(args.length == 1) {
       writeFileLarge(Integer.valueOf(args[0]));
+    } */
+    String path = "C://Users//Ivan//Desktop//Wiki//wikiforia//wikiforia//dist//wikidump.txt";
+    int countScip = 50;
+    try {
+      br = new BufferedReader(new FileReader(path));
+      int i = 0;
+      for (String line; i < countScip && (line = br.readLine()) != null; i++) {
+        System.out.println(line);
+      }
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
     }
   }
 }
