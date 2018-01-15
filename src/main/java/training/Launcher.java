@@ -18,7 +18,7 @@ public class Launcher {
   private static Logger log = LoggerFactory.getLogger(Launcher.class);
   
   public static void main(String[] args) throws IOException {
-    String filePath = "C://Users//Ivan//workspace//W2V//project//model.txt";
+    String filePath = args[0];
 
     log.info("Load & Vectorize Sentences....");
     // Strip white space before and after for each line
@@ -30,7 +30,7 @@ public class Launcher {
     
     log.info("Building model....");
     Word2Vec vec = new Word2Vec.Builder()
-            .minWordFrequency(5)
+            .minWordFrequency(5) // 3
             .iterations(1)
             .layerSize(100)
             .seed(42)
@@ -44,10 +44,7 @@ public class Launcher {
     
     System.out.println("Save vectors....");
     
-    // WordVectorSerializer.writeWordVectors(vec, file);
-    WordVectorSerializer.writeWordVectors(vec, "model1.txt");
-    //WordVectorSerializer.we
-    // WordVectorSerializer.writeWord2VecModel(vec, "pathToSaveModel.txt");
+    WordVectorSerializer.writeWordVectors(vec, "modelWiki.txt");
     
     log.info("Closest Words:");
     Collection<String> lst = vec.wordsNearest("день", 10);

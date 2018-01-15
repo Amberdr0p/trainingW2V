@@ -17,6 +17,9 @@
 		<nd4j.version>0.8.0</nd4j.version>
 		<dl4j.version>0.8.0</dl4j.version>
 		<scala.binary.version>2.11</scala.binary.version>
+		
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
     <dependencyManagement>
