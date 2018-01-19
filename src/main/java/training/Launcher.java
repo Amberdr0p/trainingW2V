@@ -30,7 +30,7 @@ public class Launcher {
     
     log.info("Building model....");
     Word2Vec vec = new Word2Vec.Builder()
-            .minWordFrequency(5) // 3
+            .minWordFrequency(3) // 3
             .iterations(1)
             .layerSize(100)
             .seed(42)
